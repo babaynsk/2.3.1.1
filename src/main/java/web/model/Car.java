@@ -8,8 +8,9 @@ import java.util.List;
 public class Car {
 
     private String carBrand;
-
     private String model;
+
+    private String name;
 
     private int series;
 
