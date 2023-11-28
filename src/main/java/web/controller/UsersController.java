@@ -39,18 +39,18 @@ public class UsersController {
     }
 
     @GetMapping("/{id}/updateUser")
-    public String updateUser(@PathVariable("id") int id, Model model) {
+    public String updateUser(@RequestParam("id") int id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "update-user";
     }
 
-    @PostMapping("/saveUpdatedUser/{id}")
-    public String saveUpdatedUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-        userService.updateUser(user, id);
+    @PostMapping("/saveUpdatedUser")
+    public String saveUpdatedUser(@ModelAttribute("user") User user) {
+        userService.updateUser(user);
         return "redirect:/all-users";
     }
     @PostMapping("/deleteUser/{id}")
-    public String deleteUser(@PathVariable("id") int id){
+    public String deleteUser(@RequestParam("id") int id){
         userService.delete(id);
         return "redirect:/all-users";
     }

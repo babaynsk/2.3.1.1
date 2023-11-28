@@ -27,6 +27,7 @@
             <td th:text="${user.getSalary()}">salary</td>
             <td>
                 <form th:action="@{'/' + ${user.getId()} + '/updateUser'}" method="get">
+                    <input type="hidden" name="id" th:value="${user.getId()}"/>
                     <button type="submit">Update</button>
                 </form>
                 <form th:action="@{'/deleteUser/' + ${user.getId()}}" method="post">
