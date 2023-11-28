@@ -30,7 +30,8 @@
                     <input type="hidden" name="id" th:value="${user.getId()}"/>
                     <button type="submit">Update</button>
                 </form>
-                <form th:action="@{'/deleteUser/' + ${user.getId()}}" method="post">
+                <form th:action="@{/deleteUser}" method="post">
+                    <input type="hidden" name="id" th:value="${user.getId()}"/>
                     <button type="submit">Delete</button>
                 </form>
             </td>
